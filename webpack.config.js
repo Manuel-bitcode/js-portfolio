@@ -2,6 +2,8 @@ const path = require("path");
 
 //plugin para inyectar js,css y nos fcilita enlazar los bundles a nuestro template HTML
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+//plugin para unificar el css
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	//elemento inicial de la App
@@ -29,6 +31,11 @@ module.exports = {
 					loader: "babel-loader",
 				},
 			},
+			//regla para el css
+			{
+				test: /\.css|.scss$/i,
+				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+			},
 		],
 	},
 	//seccion plugins
@@ -38,6 +45,10 @@ module.exports = {
 			inject: true, //inyecta el Bundle
 			template: "./public/index.html", //La ruta al template Html
 			filename: "./index.html", // Nombre final del archivo
+		}),
+		//plugin para unificacion de css en varios documentos en uno solo
+		new MiniCssExtractPlugin({
+			filename: "./prueba.css",
 		}),
 	],
 };
