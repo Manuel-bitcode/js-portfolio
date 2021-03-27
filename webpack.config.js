@@ -11,6 +11,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const Dotenv = require("dotenv-webpack");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
 	//elemento inicial de la App
 	entry: "./src/index.js",
@@ -56,7 +57,7 @@ module.exports = {
 				//https://webpack.js.org/configuration/module/#ruletype
 				type: "asset/resource",
 				generator: {
-					filename: "static/images/[hash][ext][query]",
+					filename: "assets/images/[hash][ext][query]",
 				},
 			},
 		],
@@ -84,6 +85,7 @@ module.exports = {
 			],
 		}),
 		new Dotenv(),
+		new CleanWebpackPlugin(),
 	],
 	//optimization de codigo para Css y js
 	optimization: {
