@@ -14,4 +14,18 @@ module.exports = {
 	resolve: {
 		extensions: [".js"],
 	},
+	//se establecen las reglas de los archivos de proyecto
+	module: {
+		rules: [
+			{
+				//tipo de extension a trabajar
+				test: /\.m?js$/,
+				//excluir los archivos que no queremos
+				exclude: /node_modules/,
+				use: {
+					loader: "babel-loader",
+				},
+			},
+		],
+	},
 };
