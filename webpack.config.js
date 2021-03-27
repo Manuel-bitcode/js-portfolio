@@ -24,6 +24,13 @@ module.exports = {
 	//extensiones con las que trabaja el proyecto
 	resolve: {
 		extensions: [".js"],
+		//sirve para evitar la navegacion entre carpetas y solo colocar un alias
+		alias: {
+			"@utils": path.resolve(__dirname, "src/utils"),
+			"@templates": path.resolve(__dirname, "src/templates"),
+			"@styles": path.resolve(__dirname, "src/styles"),
+			"@images": path.resolve(__dirname, "src/assets/images"),
+		},
 	},
 	//se establecen las reglas de los archivos de proyecto
 	module: {
@@ -65,6 +72,7 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: "./assets/prueba.[contenthash].css",
 		}),
+		//solo sirve para copiar archivos de un lado a otro
 		new CopyWebpackPlugin({
 			patterns: [
 				{
