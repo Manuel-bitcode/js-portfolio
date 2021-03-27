@@ -1,5 +1,8 @@
 const path = require("path");
 
+//plugin para inyectar js,css y nos fcilita enlazar los bundles a nuestro template HTML
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
 	//elemento inicial de la App
 	entry: "./src/index.js",
@@ -28,4 +31,13 @@ module.exports = {
 			},
 		],
 	},
+	//seccion plugins
+	plugins: [
+		new HtmlWebpackPlugin({
+			//configuracion plugin
+			inject: true, //inyecta el Bundle
+			template: "./public/index.html", //La ruta al template Html
+			filename: "./index.html", // Nombre final del archivo
+		}),
+	],
 };
