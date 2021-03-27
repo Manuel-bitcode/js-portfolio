@@ -4,7 +4,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 //plugin para unificar el css
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+//plugin para copia de archivos
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
 	//elemento inicial de la App
 	entry: "./src/index.js",
@@ -49,6 +50,15 @@ module.exports = {
 		//plugin para unificacion de css en varios documentos en uno solo
 		new MiniCssExtractPlugin({
 			filename: "./prueba.css",
+		}),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					//le decimos donde se encuentran nuestros archivos que deseamos mover
+					from: path.resolve(__dirname, "src", "assets/images"),
+					to: "assets/images",
+				},
+			],
 		}),
 	],
 };
