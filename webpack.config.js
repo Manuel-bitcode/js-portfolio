@@ -37,6 +37,15 @@ module.exports = {
 				test: /\.css|.scss$/i,
 				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
 			},
+			{
+				test: /\.png|.jpg$/,
+				//type de generacion e archivos es documental
+				//https://webpack.js.org/configuration/module/#ruletype
+				type: "asset/resource",
+				generator: {
+					filename: "static/images/[hash][ext][query]",
+				},
+			},
 		],
 	},
 	//seccion plugins
