@@ -11,19 +11,19 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/gndx/js-portfolio.git"
+		"url": "git+https://github.com/Manuel-bitcode/js-portfolio.git"
 	},
 	"keywords": [
 		"javascript",
 		"html",
 		"css"
 	],
-	"author": "oscar barajas <oscar@gndx.dev>",
+	"author": "manuel martinez",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/gndx/js-portfolio/issues"
+		"url": "https://github.com/Manuel-bitcode/js-portfolio/issues"
 	},
-	"homepage": "https://github.com/gndx/js-portfolio#readme",
+	"homepage": "https://github.com/Manuel-bitcode/js-portfolio#readme",
 	"devDependencies": {
 		"@babel/core": "^7.13.13",
 		"@babel/plugin-transform-runtime": "^7.13.10",
