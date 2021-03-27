@@ -6,6 +6,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 //plugin para copia de archivos
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+//plugin mini css comprime el css a escala mas pequeña y el js con el terser
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+
 module.exports = {
 	//elemento inicial de la App
 	entry: "./src/index.js",
@@ -14,7 +18,8 @@ module.exports = {
 		//path donde va a parar la carpeta contenedora
 		path: path.resolve(__dirname, "dist"),
 		//nombre al resultante del js unificado
-		filename: "bundle.js",
+		// se le agrega un hash para el manejo de versiones
+		filename: "bundle.[contenthash].js",
 	},
 	//extensiones con las que trabaja el proyecto
 	resolve: {
@@ -58,7 +63,7 @@ module.exports = {
 		}),
 		//plugin para unificacion de css en varios documentos en uno solo
 		new MiniCssExtractPlugin({
-			filename: "./prueba.css",
+			filename: "./assets/prueba.[contenthash].css",
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
@@ -70,4 +75,9 @@ module.exports = {
 			],
 		}),
 	],
+	//optimization de codigo para Css y js
+	optimization: {
+		minimize: true,
+		minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+	},
 };
