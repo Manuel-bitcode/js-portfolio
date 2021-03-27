@@ -24,6 +24,8 @@ module.exports = {
 	},
 	//extensiones con las que trabaja el proyecto
 	mode: "development",
+	//significa que nuestro webpack estara atento a cualquier cambio
+	watch: true,
 	resolve: {
 		extensions: [".js"],
 		//sirve para evitar la navegacion entre carpetas y solo colocar un alias
