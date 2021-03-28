@@ -20,7 +20,7 @@ const Template = async () => {
         </div>
         <div class="card_userdata">
           <ul>
-            <li>${data.email}</li>
+            <li>${data.email}prueba nombre</li>
             <li>${data.location.country}</li>
           </ul>
         </div>
